@@ -1,7 +1,12 @@
+import Formulario from "./containers/formulario";
+
 function App() {
   return (
-    <div className="App"></div>
+    <>
+    <h1>Lista de Tarefas</h1>
+    <Formulario />
+    </>
   )
 }
 
-export default App;
+export default App
