@@ -1,10 +1,15 @@
-import Formulario from "./containers/formulario";
+import EstiloGlobal from './styles'
+
+import Formulario from './containers/formulario'
+import ListaDeContatos from './containers/Lista de contatos'
 
 function App() {
   return (
     <>
-    <h1>Lista de Tarefas</h1>
-    <Formulario />
+      <EstiloGlobal />
+      <h1>Lista de Contatos</h1>
+      <Formulario />
+      <ListaDeContatos />
     </>
   )
 }

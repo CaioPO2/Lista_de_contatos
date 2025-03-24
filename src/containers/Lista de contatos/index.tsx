@@ -1,4 +1,4 @@
-import Contato from "../../components/contato";
+import Contato from '../../components/contato'
 
 const contatos = [
   {
@@ -15,7 +15,11 @@ const contatos = [
 
 const ListaDeContatos = () => (
   <ul>
-    {contatos.map(t => <li><Contato nome={t.nome} email={t.email} telefone={t.telefone} /></li>)}
+    {contatos.map((t) => (
+      <li key={}>
+        <Contato nome={t.nome} email={t.email} telefone={t.telefone} />
+      </li>
+    ))}
   </ul>
 )
 

@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState } from 'react'
 
 type Props = {
   nome: string
@@ -6,7 +6,7 @@ type Props = {
   telefone: string
 }
 
-const Contato = ({nome, email, telefone}: Props) => {
+const Contato = ({ nome, email, telefone }: Props) => {
   const [estaEditando, setEstaEditando] = useState(false)
   return (
     <div>
@@ -16,11 +16,15 @@ const Contato = ({nome, email, telefone}: Props) => {
       {estaEditando ? (
         <>
           <button type="button">Salvar</button>
-          <button onClick={() => setEstaEditando(false)} type="button">Cancelar</button>
+          <button onClick={() => setEstaEditando(false)} type="button">
+            Cancelar
+          </button>
         </>
       ) : (
         <>
-          <button onClick={() => setEstaEditando(true)} type="button">Editar</button>
+          <button onClick={() => setEstaEditando(true)} type="button">
+            Editar
+          </button>
           <button type="button">Deletar</button>
         </>
       )}
