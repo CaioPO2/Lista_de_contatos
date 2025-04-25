@@ -1,31 +1,49 @@
 import { useState } from 'react'
+import {
+  SpanContato,
+  BotaoContatoEditar,
+  BotaoContatoDeletarECancelar,
+  BotaoContatoSalvar
+} from './style'
 
-type Props = {
-  nome: string
-  email: string
-  telefone: string
-}
+import { remover } from '../../store/reducers/contatos'
+import { useDispatch } from 'react-redux'
+import ContatoClass from '../../models/Contato'
 
-const Contato = ({ nome, email, telefone }: Props) => {
+type Props = ContatoClass
+
+const Contato = ({ nome, email, telefone, id }: Props) => {
+  const dispatch = useDispatch()
   const [estaEditando, setEstaEditando] = useState(false)
   return (
     <div>
-      <span>{nome}</span>
-      <span>{email}</span>
-      <span>{telefone}</span>
+      <SpanContato>{nome}</SpanContato>
+      <SpanContato>{email}</SpanContato>
+      <SpanContato>{telefone}</SpanContato>
       {estaEditando ? (
         <>
-          <button type="button">Salvar</button>
-          <button onClick={() => setEstaEditando(false)} type="button">
+          <BotaoContatoSalvar type="button">Salvar</BotaoContatoSalvar>
+          <BotaoContatoDeletarECancelar
+            onClick={() => setEstaEditando(false)}
+            type="button"
+          >
             Cancelar
-          </button>
+          </BotaoContatoDeletarECancelar>
         </>
       ) : (
         <>
-          <button onClick={() => setEstaEditando(true)} type="button">
+          <BotaoContatoEditar
+            onClick={() => setEstaEditando(true)}
+            type="button"
+          >
             Editar
-          </button>
-          <button type="button">Deletar</button>
+          </BotaoContatoEditar>
+          <BotaoContatoDeletarECancelar
+            onClick={() => dispatch(remover(id))}
+            type="button"
+          >
+            Deletar
+          </BotaoContatoDeletarECancelar>
         </>
       )}
     </div>
