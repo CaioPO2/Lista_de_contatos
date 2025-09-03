@@ -1,9 +1,11 @@
 import { useState } from 'react'
 import {
-  SpanContato,
+  InputContato,
   BotaoContatoEditar,
   BotaoContatoDeletarECancelar,
-  BotaoContatoSalvar
+  BotaoContatoSalvar,
+  ContainerContato,
+  Item
 } from './style'
 
 import { remover } from '../../store/reducers/contatos'
@@ -16,12 +18,18 @@ const Contato = ({ nome, email, telefone, id }: Props) => {
   const dispatch = useDispatch()
   const [estaEditando, setEstaEditando] = useState(false)
   return (
-    <div>
-      <SpanContato>{nome}</SpanContato>
-      <SpanContato>{email}</SpanContato>
-      <SpanContato>{telefone}</SpanContato>
+    <ContainerContato>
       {estaEditando ? (
         <>
+          <Item>
+            <InputContato>{nome}</InputContato>
+          </Item>
+          <Item>
+            <InputContato>{email}</InputContato>
+          </Item>
+          <Item>
+            <InputContato>{telefone}</InputContato>
+          </Item>
           <BotaoContatoSalvar type="button">Salvar</BotaoContatoSalvar>
           <BotaoContatoDeletarECancelar
             onClick={() => setEstaEditando(false)}
@@ -32,6 +40,15 @@ const Contato = ({ nome, email, telefone, id }: Props) => {
         </>
       ) : (
         <>
+          <Item>
+            <InputContato disabled>{nome}</InputContato>
+          </Item>
+          <Item>
+            <InputContato disabled>{email}</InputContato>
+          </Item>
+          <Item>
+            <InputContato disabled>{telefone}</InputContato>
+          </Item>
           <BotaoContatoEditar
             onClick={() => setEstaEditando(true)}
             type="button"
@@ -46,7 +63,7 @@ const Contato = ({ nome, email, telefone, id }: Props) => {
           </BotaoContatoDeletarECancelar>
         </>
       )}
-    </div>
+    </ContainerContato>
   )
 }
 

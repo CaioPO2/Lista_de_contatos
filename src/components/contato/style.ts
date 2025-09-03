@@ -1,6 +1,16 @@
 import styled from 'styled-components'
 
-export const SpanContato = styled.span`
+export const ContainerContato = styled.div`
+  display: flex;
+  justify-content: space-around;
+  align-itens: center;
+`
+
+export const Item = styled.div`
+  width: 350px;
+`
+
+export const InputContato = styled.input`
   padding-right: 40px;
 `
 
