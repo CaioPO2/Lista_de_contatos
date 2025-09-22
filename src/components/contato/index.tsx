@@ -9,6 +9,7 @@ import {
 } from './style'
 
 import { remover } from '../../store/reducers/contatos'
+import { editar } from '../../store/reducers/contatos'
 import { useDispatch } from 'react-redux'
 import ContatoClass from '../../models/Contato'
 
@@ -17,20 +18,40 @@ type Props = ContatoClass
 const Contato = ({ nome, email, telefone, id }: Props) => {
   const dispatch = useDispatch()
   const [estaEditando, setEstaEditando] = useState(false)
+
+  const [novoNome, setNovoNome] = useState(nome)
+  const [novoEmail, setNovoEmail] = useState(email)
+  const [novoTelefone, setNovoTelefone] = useState(telefone)
+
+  const salvarEdicao = () => {
+    dispatch(editar(new Contato(id, novoNome, novoEmail, novoTelefone)))
+    setEstaEditando(false)
+  }
   return (
     <ContainerContato>
       {estaEditando ? (
         <>
           <Item>
-            <InputContato>{nome}</InputContato>
+            <InputContato
+              value={novoNome}
+              onChange={(e) => setNovoNome(e.target.value)}
+            />
           </Item>
           <Item>
-            <InputContato>{email}</InputContato>
+            <InputContato
+              value={novoEmail}
+              onChange={(e) => setNovoEmail(e.target.value)}
+            />
           </Item>
           <Item>
-            <InputContato>{telefone}</InputContato>
+            <InputContato
+              value={novoTelefone}
+              onChange={(e) => setNovoTelefone(e.target.value)}
+            />
           </Item>
-          <BotaoContatoSalvar type="button">Salvar</BotaoContatoSalvar>
+          <BotaoContatoSalvar type="button" onClick={salvarEdicao}>
+            Salvar
+          </BotaoContatoSalvar>
           <BotaoContatoDeletarECancelar
             onClick={() => setEstaEditando(false)}
             type="button"
