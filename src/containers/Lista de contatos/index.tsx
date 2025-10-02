@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux'
-import Contato from '../../components/contato'
+import Contato from '../../components/contatoComponente'
 import { ContainerLista, Lista, ContatoLista, SpanLista } from './styles'
 
 import { RootReducer } from '../../store'

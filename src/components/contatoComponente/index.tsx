@@ -15,7 +15,7 @@ import ContatoClass from '../../models/Contato'
 
 type Props = ContatoClass
 
-const Contato = ({ nome, email, telefone, id }: Props) => {
+const ContatoComponente = ({ nome, email, telefone, id }: Props) => {
   const dispatch = useDispatch()
   const [estaEditando, setEstaEditando] = useState(false)
 
@@ -24,7 +24,7 @@ const Contato = ({ nome, email, telefone, id }: Props) => {
   const [novoTelefone, setNovoTelefone] = useState(telefone)
 
   const salvarEdicao = () => {
-    dispatch(editar(new Contato(id, novoNome, novoEmail, novoTelefone)))
+    dispatch(editar(new ContatoClass(id, novoNome, novoEmail, novoTelefone)))
     setEstaEditando(false)
   }
   return (
@@ -88,4 +88,4 @@ const Contato = ({ nome, email, telefone, id }: Props) => {
   )
 }
 
-export default Contato
+export default ContatoComponente
