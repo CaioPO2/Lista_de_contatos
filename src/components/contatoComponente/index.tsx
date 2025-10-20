@@ -62,13 +62,13 @@ const ContatoComponente = ({ nome, email, telefone, id }: Props) => {
       ) : (
         <>
           <Item>
-            <InputContato disabled>{nome}</InputContato>
+            <InputContato disabled value={nome} />
           </Item>
           <Item>
-            <InputContato disabled>{email}</InputContato>
+            <InputContato disabled value={email} />
           </Item>
           <Item>
-            <InputContato disabled>{telefone}</InputContato>
+            <InputContato disabled value={telefone} />
           </Item>
           <BotaoContatoEditar
             onClick={() => setEstaEditando(true)}
