@@ -9,12 +9,14 @@ const Formulario = () => {
   const [nome, setNome] = useState('')
   const [email, setEmail] = useState('')
   const [telefone, setTelefone] = useState('')
+  let id = 1
 
   const adicionarContato = (evento: FormEvent) => {
     evento.preventDefault()
-    const contatoParaAdicionar = new Contato(9, nome, email, telefone)
+    const contatoParaAdicionar = new Contato(id, nome, email, telefone)
 
     dispatch(adicionar(contatoParaAdicionar))
+    id++
   }
 
   return (

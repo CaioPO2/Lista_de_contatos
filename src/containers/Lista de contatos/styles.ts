@@ -20,8 +20,10 @@ export const Lista = styled.ul`
   padding-top: 20px;
   padding-bottom: 20px;
   list-style: none;
+  color: #fff;
 `
 
 export const ContatoLista = styled.li`
   padding-bottom: 10px;
+  color: #fff;
 `
