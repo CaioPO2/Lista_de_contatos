@@ -9,7 +9,7 @@ const Formulario = () => {
   const [nome, setNome] = useState('')
   const [email, setEmail] = useState('')
   const [telefone, setTelefone] = useState('')
-  let id = 1
+  let id = 4
 
   const adicionarContato = (evento: FormEvent) => {
     evento.preventDefault()
